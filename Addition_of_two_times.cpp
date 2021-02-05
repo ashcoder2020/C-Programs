@@ -54,6 +54,7 @@ class AddTwoTime{
        
         
         tot_hr = hours + cobj2.hours + carry;
+        carry= 0;
         //minutes to hours and minutes
         if (tot_hr>60){
             //cout<<"Converting hours to day"<<endl;
@@ -68,19 +69,12 @@ class AddTwoTime{
         }
         else{
             hourr = tot_hr;
-        }
-       
-        
-    }
-    
-    
+        }   
+    } 
     void display(){
         cout<<carry<< " days "<<hourr<<" hours "<<minutee<<" minutes "<<secondd<<" seconds "<<endl;
     }
 };
-
-
-
 
 int main()
 {
@@ -90,8 +84,6 @@ int main()
     obj2.AddTime(12,69,120);
     obj1.Addition(obj2);
     obj1.display();
-    
-    
 
     return 0;
 }
