@@ -14,6 +14,7 @@ class ShoppingReceipt{
     int i,c = 0;
     int grandTotal=0;
     int noItemsBuy;
+    int itemCount = 0;
     
     public:
     void printItems(){
@@ -36,6 +37,7 @@ class ShoppingReceipt{
                 sumBuyItem[c] = kg * itemPrice[0];
                 cout<<"item added successfully"<<endl;
                 c= c+1;
+                itemCount = itemCount+1;
                 break;
                 
             case 2:
@@ -46,6 +48,7 @@ class ShoppingReceipt{
                 sumBuyItem[c] = kg * itemPrice[1];
                 cout<<"item added successfully"<<endl;
                 c = c+1;
+                itemCount = itemCount+1;
                 break;
                 
             case 3:
@@ -56,6 +59,7 @@ class ShoppingReceipt{
                 sumBuyItem[c] = kg * itemPrice[2];
                 cout<<"item added successfully"<<endl;
                 c = c+1;
+                itemCount = itemCount+1;
                 break;
                 
             case 4:
@@ -66,6 +70,7 @@ class ShoppingReceipt{
                 sumBuyItem[c] = kg * itemPrice[3];
                 cout<<"item added successfully"<<endl;
                 c = c+1;
+                itemCount = itemCount+1;
                 break;
             
                 
@@ -73,36 +78,32 @@ class ShoppingReceipt{
     }
     
     void showAllBuyItems(){
-        cout<<"========================RECEIPT======================="<<endl;
         cout<<endl;
-        int noItems = *(&sumBuyItem + 1) - sumBuyItem;
+        cout<<endl;
+        cout<<"==========================================RECEIPT======================================"<<endl;
+        cout<<endl;
+
         cout<<"Item No."<<"\t\t"<<"Item Name"<<"\t\t"<<"Quantity(Kg)"<<"\t\t"<<"Total"<<endl;
-        for(i=0;i<noItems;i++){
+        for(i=0;i<itemCount;i++){
             cout<<endl;
             cout<<i+1<<"\t\t\t"<<cartItems[i]<<"\t\t\t"<<quantity[i]<<"\t\t\t"<<sumBuyItem[i]<<endl;
         }
-        int tt = TotalFind();
-        cout<<tt;
+        cout<<endl;
+        cout<<endl;
+        cout<<"------------------------------------------------------------------------------------------"<<endl;
        
     }
     
-    int TotalFind(){
-        cout<<"Total find "<<endl;
-        int noItemsBuy = *(&sumBuyItem + 1) - sumBuyItem;
-        for(i=0;i<noItemsBuy;i++){
-            grandTotal = grandTotal + sumBuyItem[i];
+    void OverallTotal(){
+    
+        int ft = 0;
+        for(i=0;i<itemCount;i++){
+            ft = ft+sumBuyItem[i];
+            
         }
-        return grandTotal;
-    }
-    
-    
-    
-    
+        cout<<"GRAND TOTAL : \t\t\t\t\t\t\t\t"<<ft<<endl;
+    }  
 };
-
-
-
-
 
 int main()
 {
@@ -128,17 +129,10 @@ int main()
                 }
                 else{
                     obj.showAllBuyItems();
-                    
-                    
-                    
+                    obj.OverallTotal();
+                               
                 }
         }
         
-    
-
     return 0;
 }
-
-
-
-
