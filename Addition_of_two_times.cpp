@@ -60,8 +60,8 @@ class AddTwoTime{
             //cout<<"Converting hours to day"<<endl;
             int conv_day;
             int conv_hour;
-            carry = tot_hr/60;
-            conv_day = tot_hr%60;
+            carry = tot_hr/24;
+            conv_day = tot_hr%24;
             
             hourr = conv_day;
             //cout<<carry<<":"<<conv_day;
